@@ -1,0 +1,36 @@
+﻿@using Practica5_prog3.Models
+@model IEnumerable<Customer_Lector>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Lector", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="postedFile" />
+    <input type="submit" name="Import" />
+
+}
+@if (Model.Count() > 0)
+{
+
+    <hr />
+    <table cellpadding="0" cellspacing="0">
+        @*<tr>
+            <th>Customer Id</th>
+            <th>Name</th>
+            <th>Country</th>
+        </tr>*@
+
+        @foreach (Customer_Lector customer in Model)
+        {
+            <td>@customer.Id</td>
+            <td>@customer.Nombre</td>
+            <td>@customer.Pais</td>
+
+            <tr>
+            </tr>
+        }
+    </table>
+}

@@ -16,7 +16,7 @@ namespace Practica5_prog3
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Lector", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
