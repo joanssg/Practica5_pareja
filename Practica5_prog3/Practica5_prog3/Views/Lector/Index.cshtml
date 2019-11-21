@@ -5,7 +5,7 @@
 }
     <style type="text/css">
         .box {
-            background-color: cornsilk;
+            background-color: #efe8d4;
             border: 1px solid #edeeee;
             border-radius: 3px;
             text-align: center;
@@ -20,10 +20,11 @@
 
     <div class="box">
         <h2>Cargar Archivo</h2>
+        <br />
 
         @using (Html.BeginForm("Index", "Lector", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
-            <input type="file" accept=".csv" name="postedFile" class="btn btn-primary" style="margin-left:40%;" />
+            <input type="file" accept=".csv" name="postedFile" class="btn btn-primary" style="margin-left:35%;" />
             <br />
             <input type="submit" name="Import" class="btn btn-primary" />
 
@@ -53,4 +54,6 @@
                 }
             </table>
         }
+        <br />
+        <br />
     </div>
