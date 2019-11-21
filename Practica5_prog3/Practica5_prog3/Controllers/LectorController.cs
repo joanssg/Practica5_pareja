@@ -10,6 +10,7 @@ namespace Practica5_prog3.Controllers
 {
     public class LectorController : Controller
     {
+
         // GET: Lector
         public ActionResult Index()
         {
@@ -42,7 +43,11 @@ namespace Practica5_prog3.Controllers
 
                             Id = row.Split(',')[0],
                             Nombre = row.Split(',')[1],
-                            Pais = row.Split(',')[2]
+                            Pais = row.Split(',')[2],
+                            Id2 = row.Split(',')[3],
+                            Nombre2 = row.Split(',')[4],
+                            Pais2 = row.Split(',')[5]
+
                         });
                     }
                 }

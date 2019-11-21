@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="consultaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="estudiantes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="cuatrimestre" Type="int" />
+        </EntityType>
+        <EntityType Name="materias">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="materia" Type="varchar" MaxLength="20" />
+          <Property Name="id_estudiante" Type="int" />
+        </EntityType>
+        <Association Name="FK__materias__id_est__15502E78">
+          <End Role="estudiantes" Type="Self.estudiantes" Multiplicity="0..1" />
+          <End Role="materias" Type="Self.materias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estudiantes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="materias">
+              <PropertyRef Name="id_estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="consultaModelStoreContainer">
+          <EntitySet Name="estudiantes" EntityType="Self.estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="materias" EntityType="Self.materias" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__materias__id_est__15502E78" Association="Self.FK__materias__id_est__15502E78">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="materias" EntitySet="materias" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="consultaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="estudiante">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cuatrimestre" Type="Int32" />
+          <NavigationProperty Name="materias" Relationship="Self.FK__materias__id_est__15502E78" FromRole="estudiantes" ToRole="materias" />
+        </EntityType>
+        <EntityType Name="materia">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="materia1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="id_estudiante" Type="Int32" />
+          <NavigationProperty Name="estudiante" Relationship="Self.FK__materias__id_est__15502E78" FromRole="materias" ToRole="estudiantes" />
+        </EntityType>
+        <Association Name="FK__materias__id_est__15502E78">
+          <End Role="estudiantes" Type="Self.estudiante" Multiplicity="0..1" />
+          <End Role="materias" Type="Self.materia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estudiantes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="materias">
+              <PropertyRef Name="id_estudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="consultaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="estudiantes" EntityType="Self.estudiante" />
+          <EntitySet Name="materias" EntityType="Self.materia" />
+          <AssociationSet Name="FK__materias__id_est__15502E78" Association="Self.FK__materias__id_est__15502E78">
+            <End Role="estudiantes" EntitySet="estudiantes" />
+            <End Role="materias" EntitySet="materias" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="consultaModelStoreContainer" CdmEntityContainer="consultaEntities">
+          <EntitySetMapping Name="estudiantes">
+            <EntityTypeMapping TypeName="consultaModel.estudiante">
+              <MappingFragment StoreEntitySet="estudiantes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cuatrimestre" ColumnName="cuatrimestre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="materias">
+            <EntityTypeMapping TypeName="consultaModel.materia">
+              <MappingFragment StoreEntitySet="materias">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="materia1" ColumnName="materia" />
+                <ScalarProperty Name="id_estudiante" ColumnName="id_estudiante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

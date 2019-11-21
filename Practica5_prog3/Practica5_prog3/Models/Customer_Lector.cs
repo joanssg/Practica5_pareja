@@ -10,6 +10,10 @@ namespace Practica5_prog3.Models
         public String Id { get;set; }
         public String Nombre { get; set; }
         public String Pais { get; set; }
+        public String Id2 { get;set; }
+        public String Nombre2 { get; set; }
+        public String Pais2 { get; set; }
+
 
     }
 }

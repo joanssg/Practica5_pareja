@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm("Index", "Lector", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="postedFile" />
+    <input type="file"  accept=".csv" name="postedFile" />
     <input type="submit" name="Import" />
 
 }
@@ -16,7 +16,7 @@
 {
 
     <hr />
-    <table cellpadding="0" cellspacing="0">
+    <table class="table">
         @*<tr>
             <th>Customer Id</th>
             <th>Name</th>
@@ -28,6 +28,9 @@
             <td>@customer.Id</td>
             <td>@customer.Nombre</td>
             <td>@customer.Pais</td>
+            <td>@customer.Id2</td>
+            <td>@customer.Nombre2</td>
+            <td>@customer.Pais2</td>
 
             <tr>
             </tr>
