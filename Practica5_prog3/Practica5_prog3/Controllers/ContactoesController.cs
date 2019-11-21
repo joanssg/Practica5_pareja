@@ -8,44 +8,45 @@ using System.Web;
 using System.Web.Mvc;
 using Practica5_prog3.Models;
 
-namespace WorkT.Controllers
+namespace Practica5_prog3.Controllers
 {
-    /*
-    public class AgendaController : Controller
+    public class ContactoesController : Controller
     {
-        private WorkEntities6 db = new WorkEntities6();
+        private workEntities db = new workEntities();
 
-        // GET: Agenda
+        // GET: Contactoes
         public ActionResult Index()
         {
-            return View(db.Contactoes.ToList());
+            return View(db.Contactos.ToList());
         }
 
         [HttpPost]
-        public ActionResult Index(String busqueda)
+        public ActionResult Index(string busqueda)
         {
-            var lista = from x in db.Contactoes
-                        select x;
+            var lista = from x in db.Contactos select x;
 
-            if (String.IsNullOrEmpty(busqueda))
+            if (string.IsNullOrEmpty(busqueda))
             {
-                return View(db.Contactoes.ToList());
+                return View(db.Contactos.ToList());
+
             }
             else
             {
                 lista = lista.Where(a => a.Nombre.Contains(busqueda));
                 return View(lista);
-
             }
+
+
         }
-        // GET: Agenda/Details/5
+
+        // GET: Contactoes/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contacto contacto = db.Contactoes.Find(id);
+            Contacto contacto = db.Contactos.Find(id);
             if (contacto == null)
             {
                 return HttpNotFound();
@@ -53,13 +54,13 @@ namespace WorkT.Controllers
             return View(contacto);
         }
 
-        // GET: Agenda/Create
+        // GET: Contactoes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Agenda/Create
+        // POST: Contactoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -68,7 +69,7 @@ namespace WorkT.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Contactoes.Add(contacto);
+                db.Contactos.Add(contacto);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -76,14 +77,14 @@ namespace WorkT.Controllers
             return View(contacto);
         }
 
-        // GET: Agenda/Edit/5
+        // GET: Contactoes/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contacto contacto = db.Contactoes.Find(id);
+            Contacto contacto = db.Contactos.Find(id);
             if (contacto == null)
             {
                 return HttpNotFound();
@@ -91,7 +92,7 @@ namespace WorkT.Controllers
             return View(contacto);
         }
 
-        // POST: Agenda/Edit/5
+        // POST: Contactoes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -107,14 +108,14 @@ namespace WorkT.Controllers
             return View(contacto);
         }
 
-        // GET: Agenda/Delete/5
+        // GET: Contactoes/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Contacto contacto = db.Contactoes.Find(id);
+            Contacto contacto = db.Contactos.Find(id);
             if (contacto == null)
             {
                 return HttpNotFound();
@@ -122,13 +123,13 @@ namespace WorkT.Controllers
             return View(contacto);
         }
 
-        // POST: Agenda/Delete/5
+        // POST: Contactoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Contacto contacto = db.Contactoes.Find(id);
-            db.Contactoes.Remove(contacto);
+            Contacto contacto = db.Contactos.Find(id);
+            db.Contactos.Remove(contacto);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -141,5 +142,5 @@ namespace WorkT.Controllers
             }
             base.Dispose(disposing);
         }
-    }*/
+    }
 }
