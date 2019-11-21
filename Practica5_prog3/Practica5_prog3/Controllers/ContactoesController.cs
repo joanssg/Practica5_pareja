@@ -20,25 +20,6 @@ namespace Practica5_prog3.Controllers
             return View(db.Contactos.ToList());
         }
 
-        [HttpPost]
-        public ActionResult Index(string busqueda)
-        {
-            var lista = from x in db.Contactos select x;
-
-            if (string.IsNullOrEmpty(busqueda))
-            {
-                return View(db.Contactos.ToList());
-
-            }
-            else
-            {
-                lista = lista.Where(a => a.Nombre.Contains(busqueda));
-                return View(lista);
-            }
-
-
-        }
-
         // GET: Contactoes/Details/5
         public ActionResult Details(string id)
         {

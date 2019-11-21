@@ -4,6 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+      <Diagram DiagramId="8a5cf5e45e7e482d93ee93b56d9c8eed" Name="Diagram1" >
+        <EntityTypeShape EntityType="workModel.Contacto" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="workModel.Evento" Width="1.5" PointX="3.375" PointY="0.75" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

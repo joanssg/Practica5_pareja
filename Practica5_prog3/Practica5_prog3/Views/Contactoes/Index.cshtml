@@ -3,56 +3,60 @@
 @{
     ViewBag.Title = "Index";
 }
+    
 
-<h2>Agenda de Contactos</h2>
+    <div>
+        <h2>Agenda de Contactos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<form method="post">
-    <input type="text" name="busqueda" class="form-control" />
-    <input type="submit" name="Buscar" class="btn btn-primary" />
-</form>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Celular)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Direccion)
-        </th>
-        <th></th>
-    </tr>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <form method="post">
+            <input type="text" name="busqueda" class="form-control" />
+            <input type="submit" name="Buscar" class="btn btn-primary" />
+        </form>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Celular)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Direccion)
+                </th>
+                <th></th>
+            </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Nombre)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Celular)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Direccion)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Nombre }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Nombre }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Nombre })
-    </td>
-</tr>
-}
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Celular)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Direccion)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Nombre }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Nombre }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Nombre })
+                    </td>
+                </tr>
+            }
 
-</table>
-<form action="/Eventoes/Index" method="post">
-    <button class="btn btn-primary" >Agendar Evento</button>
-</form>
+        </table>
+        <form action="/Eventoes/Index" method="post">
+            <button class="btn btn-primary">Agendar Evento</button>
+        </form>
+    </div>

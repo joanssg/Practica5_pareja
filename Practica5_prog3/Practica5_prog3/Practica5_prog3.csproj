@@ -332,16 +332,16 @@
     <Content Include="Views\materias\Details.cshtml" />
     <Content Include="Views\materias\Edit.cshtml" />
     <Content Include="Views\materias\Index.cshtml" />
-    <Content Include="Views\Contactoes\Create.cshtml" />
-    <Content Include="Views\Contactoes\Delete.cshtml" />
-    <Content Include="Views\Contactoes\Details.cshtml" />
-    <Content Include="Views\Contactoes\Edit.cshtml" />
-    <Content Include="Views\Contactoes\Index.cshtml" />
     <Content Include="Views\Eventoes\Create.cshtml" />
     <Content Include="Views\Eventoes\Delete.cshtml" />
     <Content Include="Views\Eventoes\Details.cshtml" />
     <Content Include="Views\Eventoes\Edit.cshtml" />
     <Content Include="Views\Eventoes\Index.cshtml" />
+    <Content Include="Views\Contactoes\Create.cshtml" />
+    <Content Include="Views\Contactoes\Delete.cshtml" />
+    <Content Include="Views\Contactoes\Details.cshtml" />
+    <Content Include="Views\Contactoes\Edit.cshtml" />
+    <Content Include="Views\Contactoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
