@@ -4,45 +4,63 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <style type="text/css">
+        .box {
+            background-color: cornsilk;
+            border: 1px solid #edeeee;
+            border-radius: 3px;
+            text-align: center;
+            max-width: 80%;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+            margin-left: 100px;
+            margin-top: 20px;
+            margin-right: 200px;
+            font-family: Montserrat;
+        }
+    </style>
 
+    <div class="box">
+        <h2>Consular las materias de los estudiantes.</h2>
 
+        <form method="post">
+            <input type="text" name="busqueda" class="form-control" style="margin-left:40%;" /><br />
+            <input type="submit" name="enviar" class="btn btn-primary" />
 
-<form method="post">
-    <input type="text" name="busqueda" class="form-control" />
-    <input type="submit" name="enviar" class="form-control" />
+        </form>
+        <br />
+        <p>
+            @Html.ActionLink("Create New", "Create")
 
-</form>
-<p>
-    @Html.ActionLink("Create New", "Create")
+        </p>
+        <br />
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.materia1)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.estudiante.nombre)
+                </th>
+                <th></th>
+            </tr>
 
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.materia1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estudiante.nombre)
-        </th>
-        <th></th>
-    </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.materia1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.estudiante.nombre)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.codigo }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.codigo }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.codigo })
+                    </td>
+                </tr>
+            }
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.materia1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.estudiante.nombre)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.codigo }) |
-                @Html.ActionLink("Details", "Details", new { id = item.codigo }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.codigo })
-            </td>
-        </tr>
-    }
-
-</table>
+        </table>
+        <br />
+    </div>

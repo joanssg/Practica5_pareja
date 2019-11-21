@@ -4,47 +4,68 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Agenda de Eventos</h2>
-<form method="post">
-    <input type="text" name="busqueda" class="form-control"/>
-    <input type="submit" name="Buscar" class="btn btn-primary" />
-</form>
+<style type="text/css">
+    .box {
+        background-color:cornsilk;
+        border: 1px solid #edeeee;
+        border-radius: 3px;
+        text-align: center;
+        max-width: 80%;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.3);
+        margin-left: 100px;
+        margin-top: 20px;
+        margin-right: 200px;
+        font-family: Montserrat;
+    }
+</style>
 
+<div class="box">
+    <h2>Agenda de Eventos</h2>
+    <form method="post">
+        <input type="text" name="busqueda" class="form-control" style="margin-left:30%;" />
+        <br />
+        <input type="submit" name="Buscar" class="btn btn-primary" />
+    </form>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Hora)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Evento1)
-        </th>
-        <th></th>
-    </tr>
+    <br />
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Evento1)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.Hora)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Fecha)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Evento1)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.Hora }) |
-        @Html.ActionLink("Details", "Details", new { id = item.Hora }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.Hora })
-    </td>
-</tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Evento1)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Hora }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Hora }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Hora })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+    <br />
+    <br />
+</div>
